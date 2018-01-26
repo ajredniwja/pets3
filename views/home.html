@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -9,11 +10,21 @@
     <form action="#" method="post">
         <label>Pet name<input type ="text" name = "petname"></label>
         <label>Pet color
+
+            <label for="pet-color">Pet Color</label>
+            <check if="{{ isset(@errors['color']) }}">
+                <p>{{ @errors['color'] }}</p>
+            </check>
             <select name="pet-color" id="pet-color">
                 <option>--Select--</option>
 
                 <repeat group="{{ @colors }}" value="{{ @color }}">
-                    <option> {{@color}} </option>
+                    <option>
+                        <check if="{{ @colorOption == color }}">
+                            Selected
+                        </check>
+                        {{ @colorOption }}
+                    </option>
                 </repeat>
             </select>
         </label>
@@ -21,5 +32,9 @@
         <br>
         <input type="submit" value="Submit">
     </form>
+
+    <check if="{{  @success }}">
+        <h2>Thank you for your order of a {{ @type }}!</h2>
+    </check>
 </body>
 </html>
