@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-    <h2>hie</h2>
+<h3>{{@username}}</h3>
+    <form action="#" method="post">
+        <label>Pet name<input type ="text" name = "petname"></label>
+        <label>Pet color
+            <select name="pet-color" id="pet-color">
+                <option>--Select--</option>
+
+                <repeat group="{{ @colors }}" value="{{ @color }}">
+                    <option> {{@color}} </option>
+                </repeat>
+            </select>
+        </label>
+        <label>Pet type<input type ="text" name = "petname"></label>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
 </body>
 </html>
