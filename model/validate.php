@@ -14,7 +14,7 @@ function validColor($color)
 
 function validString($str)
 {
-    if (!empty($str))
+    if (!empty($str) && ctype_alpha($str))
     {
         return true;
     }
@@ -28,3 +28,5 @@ if (!validColor($color))
     $errors['color'] = "Please enter a valid color";
 
 }
+
+$success = sizeof($errors) == 0;
