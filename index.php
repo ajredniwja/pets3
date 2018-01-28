@@ -11,9 +11,9 @@ $f3 = Base :: instance();
 //$f3 = set('colors', array('pink', 'green', 'blue'));
 
 //Define a default route
-$f3->route('GET|POST /new-pet', function ($f3)
+$f3->route('GET|POST /', function ($f3)
 {
-    $f3->set('username','aj');
+    //$f3->set('username','aj');
     $f3->set('colors', array('pink','green', 'blue'));
 
 
@@ -24,9 +24,13 @@ $f3->route('GET|POST /new-pet', function ($f3)
         $pettype = $_POST['pet-type'];
 
         include ('model/validate.php');
+
         $f3->set('pet-color',$color);
         $f3->set('pet-name',$petname);
         $f3->set('pet-type',$pettype);
+        $f3->set('success',success);
+        $success = get('success');
+
 
     }
 
