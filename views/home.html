@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -6,35 +5,42 @@
     <title>Title</title>
 </head>
 <body>
-<h3>{{@username}}</h3>
-    <form action="#" method="post">
-        <label>Pet name<input type ="text" name = "petname"></label>
-        <label> Pet colors
+    <form action="" method="post">
+        <check if="{{ isset(@errors['pname']) }}">
+            <p>{{ @errors['pname'] }}</p>
+        </check>
 
-            <label for="pet-color">Pet Color</label>
+        <label>Pet name <input type ="text" value="{{@pname}}" name = "pname"></label>
+            <label for="pcolor">Pet Color</label>
             <check if="{{ isset(@errors['color']) }}">
                 <p>{{ @errors['color'] }}</p>
             </check>
-            <select name="pet-color" id="pet-color">
-                <option>--Select--</option>
 
-                <repeat group="{{ @colors }}" value="{{ @color }}">
-                    <option>
-                        <check if="{{ @colorOption == color }}">
-                            Selected
-                        </check>
+            <select name="pcolor" id="pcolor">
+                <option value="">--Select--</option>
+
+                <repeat group="{{ @colors }}" value="{{ @colorOption }}">
+                    <option
+                        <check if="{{ @colorOption == @color }}">
+                        selected</check>>
                         {{ @colorOption }}
                     </option>
                 </repeat>
             </select>
-        </label>
-        <label>Pet type<input type ="text" name = "petname"></label>
+
+        <check if="{{ isset(@errors['ptype']) }}">
+            <p>{{ @errors['ptype'] }}</p>
+        </check>
+
+
+        <label>Pet type<input type ="text" name = "ptype" value="{{@ptype}}"></label>
         <br>
-        <input type="submit" value="Submit">
+        <input type="submit" name="submit" value="submit">
     </form>
 
-    <check if="{{  @success }}">
-        <h2>Thank you for your order of a {{ @type }}!</h2>
+    <check if="{{ @success }}">
+        <h2>Thank you for your order of a {{@color}} {{ @ptype }}!</h2>
     </check>
+
 </body>
 </html>
