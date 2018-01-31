@@ -6,16 +6,8 @@
 </head>
 <body>
     <form action="" method="post">
-        <check if="{{ isset(@errors['pname']) }}">
-            <p>{{ @errors['pname'] }}</p>
-        </check>
-
         <label>Pet name <input type ="text" value="{{@pname}}" name = "pname"></label>
             <label for="pcolor">Pet Color</label>
-            <check if="{{ isset(@errors['color']) }}">
-                <p>{{ @errors['color'] }}</p>
-            </check>
-
             <select name="pcolor" id="pcolor">
                 <option value="">--Select--</option>
 
@@ -28,15 +20,23 @@
                 </repeat>
             </select>
 
-        <check if="{{ isset(@errors['ptype']) }}">
-            <p>{{ @errors['ptype'] }}</p>
-        </check>
-
-
         <label>Pet type<input type ="text" name = "ptype" value="{{@ptype}}"></label>
         <br>
         <input type="submit" name="submit" value="submit">
     </form>
+
+    <check if="{{ isset(@errors['pname']) }}">
+        <p>{{ @errors['pname'] }}</p>
+    </check>
+
+
+    <check if="{{ isset(@errors['ptype']) }}">
+        <p>{{ @errors['ptype'] }}</p>
+    </check>
+
+    <check if="{{ isset(@errors['color']) }}">
+        <p>{{ @errors['color'] }}</p>
+    </check>
 
     <check if="{{ @success }}">
         <h2>Thank you for your order of a {{@color}} {{ @ptype }}!</h2>
