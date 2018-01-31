@@ -26,20 +26,20 @@
     </form>
 
     <check if="{{ isset(@errors['pname']) }}">
-        <p>{{ @errors['pname'] }}</p>
+        <p style="color: red">{{ @errors['pname'] }}</p>
     </check>
 
 
     <check if="{{ isset(@errors['ptype']) }}">
-        <p>{{ @errors['ptype'] }}</p>
+        <p style="color: red">{{ @errors['ptype'] }}</p>
     </check>
 
     <check if="{{ isset(@errors['color']) }}">
-        <p>{{ @errors['color'] }}</p>
+        <p style="color: red">{{ @errors['color'] }}</p>
     </check>
 
     <check if="{{ @success }}">
-        <h2>Thank you for your order of a {{@color}} {{ @ptype }}!</h2>
+        <h2 style="color: {{@color}}">Thank you for your order of a {{@color}} {{ @ptype }}!</h2>
     </check>
 
 </body>
